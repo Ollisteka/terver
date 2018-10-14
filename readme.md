@@ -14,7 +14,10 @@
 - график функции распределения ![theta](http://latex.codecogs.com/gif.latex?%5Ctheta). 
 
 Перед запуском:
+
 `pip install requirements.txt`
+
 Чтобы запустить:
+
 `python first_task.py`
 
