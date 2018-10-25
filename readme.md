@@ -15,7 +15,7 @@
 
 Перед запуском:
 
-`pip install requirements.txt`
+`pip install -r requirements.txt`
 
 Чтобы запустить:
 
