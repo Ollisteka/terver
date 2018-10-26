@@ -8,10 +8,9 @@
 
 Запустив программу, написанную на Python 3.6 вы узнаете:
 
-- закон распределения случайной величины  ![equation](http://latex.codecogs.com/gif.latex?%5Ctheta%20%3D%20%5Cxi%5E%5Cmu%20-%20%5Cmu%5E%5Cxi);
-- матожидание ![theta](http://latex.codecogs.com/gif.latex?%5Ctheta);
-- дисперсию ![theta](http://latex.codecogs.com/gif.latex?%5Ctheta);
-- график функции распределения ![theta](http://latex.codecogs.com/gif.latex?%5Ctheta). 
+- медиану ![equation](http://latex.codecogs.com/gif.latex?%5Ctheta%20%3D%20%5Cxi%5E%5Cmu%20-%20%5Cmu%5E%5Cxi);
+- среднеквадратичное отклонение ![theta](http://latex.codecogs.com/gif.latex?%5Ctheta);
+- ковариацию и корреляцию ![equation](http://latex.codecogs.com/gif.latex?%20%5Cxi%5E%5Cmu%20-%20%5Cmu%5E%5Cxi) и ![equation](http://latex.codecogs.com/gif.latex?min%282%5E%7B%5Cxi%7D%2C%20%5Cmu%29). 
 
 Перед запуском:
 
@@ -19,5 +18,9 @@
 
 Чтобы запустить:
 
-`python first_task.py`
+1.1:
+`python first_task.py` *медиана и среднеквадратичное отклонение*
+
+1.2:
+`python part_two.py` *ковариация и корреляция*
 
