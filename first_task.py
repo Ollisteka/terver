@@ -1,4 +1,5 @@
 from collections import defaultdict, OrderedDict
+from math import sqrt
 
 import matplotlib.pyplot as plt
 from prettytable import PrettyTable
@@ -15,6 +16,9 @@ class RandomValuesDescriber:
         self.find_expectation()
         self.dispersion = 0
         self.find_dispersion()
+        self.median = 0
+        self.find_median()
+        self.standard_deviation = sqrt(self.dispersion)
 
     def probability(self, table, value):
         return table[value]
@@ -72,15 +76,29 @@ class RandomValuesDescriber:
 
         print(x)
 
+    def find_median(self):
+        items = sorted(self.theta_table.items(), key=lambda item: item[0])
+        for i in range(len(items)):
+            left = sum(item[1] for item in items[:i + 1])
+            right = sum(item[1] for item in items[i:])
+            if left >= 0.5 and right >= 0.5:
+                self.median = items[i][0]
+                return
+        self.median = None
 
-correct_cube = {i: spInt(1) / spInt(6) for i in range(1, 6 + 1)}
-incorrect_cube = {i: spInt(1) / spInt(12) for i in range(1, 6 + 1)}
-incorrect_cube[3] = incorrect_cube[4] = spInt(1) / spInt(3)
 
-theta = lambda psi, mu: psi ** mu - mu ** psi
+if __name__ == '__main__':
+    correct_cube = {i: spInt(1) / spInt(6) for i in range(1, 6 + 1)}
+    incorrect_cube = {i: spInt(1) / spInt(12) for i in range(1, 6 + 1)}
+    incorrect_cube[3] = incorrect_cube[4] = spInt(1) / spInt(3)
 
-describer = RandomValuesDescriber(theta, correct_cube, incorrect_cube)
-describer.print_distribution_law()
-print(f"E={describer.expectation}")
-print(f"D={describer.dispersion}")
-describer.show_plot()
+    theta = lambda psi, mu: psi ** mu - mu ** psi
+
+    describer = RandomValuesDescriber(theta, correct_cube, incorrect_cube)
+    # describer.print_distribution_law()
+    # print(f"E={describer.expectation}")
+    # print(f"D={describer.dispersion}")
+    # describer.show_plot()
+
+    print(f"Median is {describer.median}")
+    print(f"Standard deviation is {describer.standard_deviation}")
